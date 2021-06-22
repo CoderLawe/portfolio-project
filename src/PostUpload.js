@@ -1,76 +1,163 @@
-import React, { useState } from 'react';
-import { Button } from "@material-ui/core";
-import { storage, db } from './firebase';
-import firebase from 'firebase';
-
-const PostUpload = ({username}) => {
-// Fields are empty by default
-    const [description, setDescription] = useState(''); 
-    const [image, setImage] = useState(null);
-    // const [url, setUrl] = useState('');
-    const [progress, setProgress] = useState('');
-
-    const handleChange = (e) => {
-        if (e.target.files[0]){ //Get the first file
-            setImage(e.target.files[0]); //Set the image in state to that
-        }
-
-    };
+import React, { useState } from "react";
+import { getFirebase } from "./firebase";
 
 
-    const handleUpload = () => {   //UPLOAD
-        const uploadTask = storage.ref(`images/${image.name}`).put(image); //Get a reference from storage, makes a new folder called images
+const labelStyles = {
+  display: "block",
+  marginBottom: 4
+};
 
-        uploadTask.on(
-            "state_changed",
-            (snapshot) => {          // This is where we wwrite the progress function...
+const inputStyles = {
+  width: "100%",
+  height: "2rem",
+  lineHeight: "2rem",
+  verticalAlign: "middle",
+  fontSize: "1rem",
+  marginBottom: "1.5rem",
+  padding: "0 0.25rem"
+};
 
-            const progress = Math.round( //This equation qorks out a number between 0-100 and gives you a progress value from zero to 100 based on how much inof has been sent out, and how much is left
-                (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-            );
-            setProgress(progress); //We then set the progress number from 0-100
-            },
-            (error) =>{
-                // Error funcition
-                console.log(error);
-                alert(error.message);
-            },
-            () => {
-                storage
-                .ref("images")              //DOWNLOAD
-                .child(image.name)
-                .getDownloadURL()// Needs to get the download URL so that whatever it is is usable
-                .then(url  =>{ //Gets the URL
-                  db.collection("posts").add({
-                    //   timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-                    //   title: title,
-                       img: url, //This was uploaded to firebase storage, then we got a download link. This code now gets that download link, and pushes it as part of a post.
-                      description:description
+const Create = ({ history }) => {
+  const [title, setTitle] = useState("");
+  const [slug, setSlug] = useState("");
+  const [coverImage, setCoverImage] = useState("");
+  const [coverImageAlt, setCoverImageAlt] = useState("");
+  const [content, setContent] = useState("");
 
-                  });                  //This is where you post the image into the database
-                  setProgress(0);
-                  setDescription("");
-                  setImage(null);
-                });
-                                    //Getting a download link. Itis already uploaded, so it just needs to fetch the data
-                // The complete function... 
-            })                                            //in firebase, gets the name then literally puts the grabbed image in
-                                                                        
+
+  const generateDate = () => {
+    const now = new Date();
+    const options = { month: "long", day: "numeric", year: "numeric" };
+  
+    const year = now.getFullYear();
+  
+    let month = now.getMonth() + 1;
+    if (month < 10) {
+      month = `0${month}`; // prepend with a 0
     }
-    return (
-        <div className="imageupload">
-    
+  
+    const day = now.getDate();
+    if (day < 10) {
+      day = `0${day}`; // prepend with a 0
+    }
+  
+    return {
+      formatted: `${year}-${month}-${day}`,             // used for sorting
+      pretty: now.toLocaleDateString("en-US", options)  // used for displaying
+    };
+  };
+  
+  const createPost = () => {
+    const date = generateDate();
+    const newPost = {
+      title,
+      dateFormatted: date.formatted,
+      datePretty: date.pretty,
+      slug,
+      coverImage,
+      coverImageAlt,
+      content
+    };
+    getFirebase()
+      .database()
+      .ref()
+      .child(`posts/${slug}`)
+      .set(newPost)
+      .then(() => history.push(`/`));
+  };
+  
 
-      <progress className="imageupload__progress" value={progress} max="100"/>
+  return (
+    <div className=" justify-start ml-20 w-1/2">
+      <h1 className="justify-center text-4xl border-b border-white-500">Create a new post here</h1>
+      <section style={{ margin: "2rem 0" }}>
+        <label style={labelStyles} htmlFor="title-field">
+          Title
+        </label>
+        <input
+          style={inputStyles}
+          id="title-field"
+          type="text"
+          value={title}
+          className="text-black"
+          onChange={({ target: { value } }) => {
+            setTitle(value);
+          }}
+        />
 
-      <input type="text" placeholder="Enter a caption..." onChange = {event => setDescription(event.target.value)} /> 
-      <input type="file" onChange={handleChange}/>
+        <label style={labelStyles}  htmlFor="slug-field">
+          Slug
+        </label>
+        <input
+          style={inputStyles}
+          id="slug-field"
+          type="text"
+          value={slug}
+          className="text-black"
+          onChange={({ target: { value } }) => {
+            setSlug(value);
+          }}
+        />
 
-      <Button onClick={handleUpload}>
-        Upload
-      </Button>
+        <label style={labelStyles} htmlFor="cover-image-field">
+          Cover image
+        </label>
+        <input
+          style={inputStyles}
+          id="cover-image-field"
+          type="text"
+          className="text-black"
+          value={coverImage}
+          onChange={({ target: { value } }) => {
+            setCoverImage(value);
+          }}
+        />
+
+        <label style={labelStyles} htmlFor="cover-image-alt-field">
+          Cover image alt
+        </label>
+        <input
+          style={inputStyles}
+          id="cover-image-alt-field"
+          type="text"
+          value={coverImageAlt}
+          className="text-black"
+          onChange={({ target: { value } }) => {
+            setCoverImageAlt(value);
+          }}
+        />
+
+        <label style={labelStyles} htmlFor="content-field">
+          Content
+        </label>
+        <textarea
+          style={{ ...inputStyles, height: 200, verticalAlign: "top" }}
+          id="content"
+          type="text"
+          value={content}
+          className="text-black"
+          onChange={({ target: { value } }) => {
+            setContent(value);
+          }}
+        />
+        <div style={{ textAlign: "right" }}>
+          <button
+            style={{
+              border: "none",
+              color: "#fff",
+              backgroundColor: "#039be5",
+              borderRadius: "4px",
+              padding: "8px 12px",
+              fontSize: "0.9rem"
+            }}
+            onClick={createPost}
+          >
+            Create
+          </button>
         </div>
-    )
-}
+      </section>
+    </div>
+  );
+};
 
-export default PostUpload
+export default Create;

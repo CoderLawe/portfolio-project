@@ -3,9 +3,10 @@ import Card from './Card'
 import Modal from '@material-ui/core/Modal';
 import { makeStyles } from '@material-ui/core/styles';
 
+import { getFirebase } from "./firebase";
 
-import { db, auth } from './firebase';
 import PostUpload from './PostUpload';
+import { Link } from 'react-router-dom';
 
 function getModalStyle() {
     const top = 50 
@@ -33,17 +34,38 @@ function Home() {
     const classes = useStyles();
     const [modalStyle] =useState(getModalStyle); //Checks if the modal style is open or not
     const [posts,setPosts] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [blogPosts, setBlogPosts] = useState([]);
+    
 
     useEffect(() =>{
-        //Where the code runs                 //Snapshot, basically takes a snap every single time a document gets added. It will update and refire this bit of code
-        db.collection('posts')
-    .onSnapshot(snapshot => {
-          setPosts(snapshot.docs.map(doc => ({
-            id: doc.id,
-            post: doc.data()
-            
-            })));
-        }) // This is the posts collection that was setup in firebase
+        //Where the code runs   
+        // const snapshotVal = snapshot.val();
+        //Snapshot, basically takes a snap every single time a document gets added. It will update and refire this bit of code
+        
+         
+        if (loading && !blogPosts.length) {
+          getFirebase()
+            .database()
+            .ref("/posts")
+            .orderByChild("dateFormatted")
+            .once("value")
+            .then(snapshot => {
+              let posts = [];
+              const snapshotVal = snapshot.val();
+              for (let slug in snapshotVal) {
+                posts.push(snapshotVal[slug]);
+              }
+         
+              const newestFirst = posts.reverse();
+              setPosts(newestFirst);
+              setLoading(false);
+            });
+        }
+         
+        if (loading) {
+          return <h1>Loading...</h1>;
+        } // This is the posts collection that was setup in firebase
 
       },[]);
 
@@ -55,16 +77,23 @@ function Home() {
 
     //  MODAL
     <div>
- <div className="flex p-30 grid md:grid-cols-3 ml-5">
- {
-            posts.map(({id, post}) => (
-              <Card key={id} title={post.title} src={post.img} description={post.description}/>
-            )) //.map works kinda like a for loop in python django
-          }
+ <div className="flex p-30 grid sm:grid-cols-2 md:grid-cols-3 ml-5">
+ {posts.map(blogPost => (
+    <div>
+            <Link to={`/${blogPost.slug}`}>
+              <Card key={blogPost.slug} src={blogPost.coverImage} title={blogPost.title} description = {blogPost.description}/>
+              {/* <Link to={`/${blogPost.slug}`}>Continue reading...</Link> */}
+            </Link>
+            
+          {/* </div> */}
+          </div>
+      ))}
 <Card
         src="/img/header-image.jpg"
         title="Django ecommerce site"
         description="Unique activities we can do together, led by a world of hosts."
+        slug="my-first-blog-post"
+
     />
     <Card
         src="img/ecom_django.png"
@@ -94,7 +123,6 @@ function Home() {
     </div>
    
    <div>
-       <PostUpload />
    </div>
     </div>
        

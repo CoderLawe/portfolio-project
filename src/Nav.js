@@ -1,6 +1,8 @@
 import React from 'react'
 import NavItem from './NavItem';
 import './Header.css';
+
+
 import{
     BadgeCheckIcon,
     CollectionIcon,
@@ -11,19 +13,30 @@ import{
     CodeIcon,
     PhoneIcon,
     LoginIcon,
+    PlusIcon,
 } from "@heroicons/react/outline"
+import { Link, useHistory } from 'react-router-dom';
 function Nav() {
+    const history = useHistory();
     return (
 
         <header
         className="text-white bg-header-image "
       >
           <div className="flex justify-center sticky top-0">
-          <NavItem title="Home" Icon={HomeIcon}/>
-          <NavItem title="About" Icon={UserIcon}/>
+          <Link to="/">
+            <NavItem title="Home" Icon={HomeIcon} />
+          </Link>
+          <Link to="/about">
+            <NavItem title="About" Icon={UserIcon}/>
+          </Link>
           <NavItem title="My Code" Icon={CodeIcon}/>
           <NavItem title="Contacts" Icon={PhoneIcon}/>
+          <Link to="/create">
+            <NavItem title="Add" Icon={PlusIcon}/>
+          </Link>
           <NavItem title="Login" Icon={LoginIcon}/>
+
 
 
           </div>
