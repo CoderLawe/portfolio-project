@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import DetailPage from './DetailPage';
 import About from './About';
 import PostUpload from './PostUpload';
+import Mycode from './Mycode';
+import Footer from './Footer';
 
 
 function App() {
@@ -19,6 +21,10 @@ function App() {
    
     <Route path="/about">
       <About />
+    </Route>
+
+    <Route path="/code">
+      <Mycode />
     </Route>
 
 
@@ -37,7 +43,7 @@ function App() {
 
       </Switch>
     {/* Cards */}
-
+      <Footer />
       </div>
       </Router>
      

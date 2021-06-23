@@ -77,7 +77,7 @@ function Home() {
 
     //  MODAL
     <div>
- <div className="flex p-30 grid sm:grid-cols-2 md:grid-cols-3 ml-5">
+ <div className="p-30 grid sm:grid-cols-2 md:grid-cols-3 ml-5">
  {posts.map(blogPost => (
     <div>
             <Link to={`/${blogPost.slug}`}>

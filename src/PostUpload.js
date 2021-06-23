@@ -100,7 +100,35 @@ const Create = ({ history }) => {
         />
 
         <label style={labelStyles} htmlFor="cover-image-field">
-          Cover image
+          Cover image URL
+        </label>
+        <input
+          style={inputStyles}
+          id="cover-image-field"
+          type="text"
+          className="text-black"
+          value={coverImage}
+          onChange={({ target: { value } }) => {
+            setCoverImage(value);
+          }}
+        />
+
+    <label style={labelStyles} htmlFor="cover-image-field">
+          Secondary image URL
+        </label>
+        <input
+          style={inputStyles}
+          id="cover-image-field"
+          type="text"
+          className="text-black"
+          value={coverImage}
+          onChange={({ target: { value } }) => {
+            setCoverImage(value);
+          }}
+        />
+
+<label style={labelStyles} htmlFor="cover-image-field">
+          Third(iary) image URL
         </label>
         <input
           style={inputStyles}

@@ -30,7 +30,9 @@ function Nav() {
           <Link to="/about">
             <NavItem title="About" Icon={UserIcon}/>
           </Link>
-          <NavItem title="My Code" Icon={CodeIcon}/>
+          <Link to="/code">
+            <NavItem title="My Code" Icon={CodeIcon}/>
+          </Link>
           <NavItem title="Contacts" Icon={PhoneIcon}/>
           <Link to="/create">
             <NavItem title="Add" Icon={PlusIcon}/>
@@ -44,13 +46,13 @@ function Nav() {
         {/* Background image */}
         <div className="ml-30 pt-140 h-auto  ">
           {/* title */}   
-          <div className="grid justify-end mr-10 block">
+          <div className="grid justify-end mr-10 ">
             <h1 className="block mb-11 text-7xl border-b-8 text-grey-300">Lawe Sosah</h1>
 
             <p className="block text-6xl text-gray-400">Web Developer</p>
         
           </div>
-<p className="flex justify-end ml-40 mt-10 text-gray-400 mr-10">"To Code, or not to code, that is...the question! </p>
+<p className="flex justify-end ml-40 mt-10 text-gray-200 mr-10">"To Code, or not to code, that is...the question! </p>
 <p className="flex justify-end ml-40 text-gray-400 mr-10 text-bold">-Lawe Sosah </p>
 
   
