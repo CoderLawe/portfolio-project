@@ -39,7 +39,12 @@ const DetailPage = ({ match }) => {
             </div>
       <h1 className="text-3xl font-bold flex justify-center font-serif  mb-5 ">{currentPost.title}</h1>
       <em className="flex justify-center mb-4">Written on {currentPost.datePretty}</em>
-      <p dangerouslySetInnerHTML={{ __html: currentPost.content }}></p>
+
+      <div className="flex justify-center ml-30 mr-30">
+         <p className="w-1/2"dangerouslySetInnerHTML={{ __html: currentPost.content }}></p>
+      </div>
+      <a className="cursor-pointer" href={currentPost.link}>Here's the link to a live demo site</a>
+
     
     </div>
     )

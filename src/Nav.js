@@ -1,6 +1,7 @@
 import React from 'react'
 import NavItem from './NavItem';
 import './Header.css';
+import './utils.js';
 
 
 import{
@@ -10,33 +11,37 @@ import{
     PhoneIcon,
     LoginIcon,
     PlusIcon,
+    MenuIcon,
 } from "@heroicons/react/outline"
 import { Link, useHistory } from 'react-router-dom';
 
 function Nav() {
     const history = useHistory();
+
+
     return (
 
         <header
-        className="text-white bg-black bg-header-image "
+        className="text-white bg-black bg-header-image"
       >
-          <div className="flex justify-center sticky top-0">
-          <Link to="/">
-            <NavItem title="Home" Icon={HomeIcon} />
-          </Link>
-          <Link to="/about">
-            <NavItem title="About" Icon={UserIcon}/>
-          </Link>
-          <Link to="/code">
-            <NavItem title="My Code" Icon={CodeIcon}/>
-          </Link>
-          <NavItem title="Contacts" Icon={PhoneIcon}/>
-          <Link to="/create">
-            <NavItem title="Add" Icon={PlusIcon}/>
-          </Link>
-          <NavItem title="Login" Icon={LoginIcon}/>
-
-
+        <div class="px-4 cursor-pointer md:hidden" id="burger">
+           <NavItem Icon={MenuIcon}/>
+          </div>
+          <div className="flex justify-center sticky top-0" id="menu">
+            <Link to="/">
+              <NavItem title="Home" Icon={HomeIcon} />
+            </Link>
+            <Link to="/about">
+              <NavItem title="About" Icon={UserIcon}/>
+            </Link>
+            <Link to="/code">
+              <NavItem title="My Code" Icon={CodeIcon}/>
+            </Link>
+            <NavItem title="Contacts" Icon={PhoneIcon}/>
+            <Link to="/create">
+              <NavItem title="Add" Icon={PlusIcon}/>
+            </Link>
+            <NavItem title="Login" Icon={LoginIcon}/>
 
           </div>
 
@@ -62,8 +67,21 @@ function Nav() {
           {/* description */}
           
         </div>
+
       </header>
+
+      
     )
+  const burger = document.querySelector('#burger');
+const menu = document.querySelector('#menu');
+
+  burger.addEventListener('click' ,() =>{
+      if(menu.classList.contains('hidden')){
+          menu.classList.remove('hidden');
+      }else{
+          menu.classList.add('hidden')
+      }
+  })
 }
 
 
