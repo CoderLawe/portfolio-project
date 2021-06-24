@@ -7,6 +7,7 @@ import About from './About';
 import PostUpload from './PostUpload';
 import Mycode from './Mycode';
 import Footer from './Footer';
+import HomeAbout from './HomeAbout';
 
 
 function App() {
@@ -33,6 +34,8 @@ function App() {
     <Route path="/:slug" component={DetailPage} />
 
     <Route path="/">
+    <HomeAbout />
+
     <div className="border-b-7 divide-y divide-light-blue-400 mt-10">
          <h1 className="italic flex justify-center font-serif text-xl divide-y divide-light-blue-400">Some of My projects </h1>
          <p></p>

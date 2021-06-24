@@ -81,14 +81,14 @@ function Home() {
  {posts.map(blogPost => (
     <div>
             <Link to={`/${blogPost.slug}`}>
-              <Card key={blogPost.slug} src={blogPost.coverImage} title={blogPost.title} description = {blogPost.description}/>
+              <Card key={blogPost.slug} src={blogPost.coverImage} title={blogPost.title} description = {blogPost.shortDescription} content = {blogPost.description}/>
               {/* <Link to={`/${blogPost.slug}`}>Continue reading...</Link> */}
             </Link>
             
           {/* </div> */}
           </div>
       ))}
-<Card
+{/* <Card
         src="/img/header-image.jpg"
         title="Django ecommerce site"
         description="Unique activities we can do together, led by a world of hosts."
@@ -119,7 +119,7 @@ function Home() {
         src="https://a0.muscache.com/im/pictures/15159c9c-9cf1-400e-b809-4e13f286fa38.jpg?im_w=720"
         title="Django Blog/portfolio "
         description="Spaces that are more than just a place to sleep."
-    />
+    /> */}
     </div>
    
    <div>

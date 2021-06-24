@@ -21,8 +21,12 @@ const Create = ({ history }) => {
   const [title, setTitle] = useState("");
   const [slug, setSlug] = useState("");
   const [coverImage, setCoverImage] = useState("");
+  const [secondaryImage, setSecondaryImage] = useState("");
+  const [thirdImage, setThirdImage] = useState("");
+
   const [coverImageAlt, setCoverImageAlt] = useState("");
   const [content, setContent] = useState("");
+  const [shortDescription,setShortDescription] = useState("");
 
 
   const generateDate = () => {
@@ -56,6 +60,9 @@ const Create = ({ history }) => {
       slug,
       coverImage,
       coverImageAlt,
+      secondaryImage,
+      thirdImage,
+      shortDescription,
       content
     };
     getFirebase()
@@ -113,40 +120,40 @@ const Create = ({ history }) => {
           }}
         />
 
-    <label style={labelStyles} htmlFor="cover-image-field">
+    <label style={labelStyles} htmlFor="cover-image-field-1">
           Secondary image URL
         </label>
         <input
           style={inputStyles}
-          id="cover-image-field"
+          id="cover-image-field-1"
           type="text"
           className="text-black"
-          value={coverImage}
+          value={secondaryImage}
           onChange={({ target: { value } }) => {
-            setCoverImage(value);
+            setSecondaryImage(value);
           }}
         />
 
-<label style={labelStyles} htmlFor="cover-image-field">
+<label style={labelStyles} htmlFor="cover-image-field-2">
           Third(iary) image URL
         </label>
         <input
           style={inputStyles}
-          id="cover-image-field"
+          id="cover-image-field-2"
           type="text"
           className="text-black"
-          value={coverImage}
+          value={thirdImage}
           onChange={({ target: { value } }) => {
-            setCoverImage(value);
+            setThirdImage(value);
           }}
         />
 
-        <label style={labelStyles} htmlFor="cover-image-alt-field">
+        <label style={labelStyles} htmlFor="cover-image-alt-field-3">
           Cover image alt
         </label>
         <input
           style={inputStyles}
-          id="cover-image-alt-field"
+          id="cover-image-alt-field-3"
           type="text"
           value={coverImageAlt}
           className="text-black"
@@ -155,7 +162,21 @@ const Create = ({ history }) => {
           }}
         />
 
-        <label style={labelStyles} htmlFor="content-field">
+        <label style={labelStyles} htmlFor="short-description">
+          Brief description
+        </label>
+        <textarea
+          style={{ ...inputStyles, height: 200, verticalAlign: "top" }}
+          id="short-description"
+          type="text"
+          value={shortDescription}
+          className="text-black"
+          onChange={({ target: { value } }) => {
+            setShortDescription(value);
+          }}
+        />
+
+<label style={labelStyles} htmlFor="content-field">
           Content
         </label>
         <textarea

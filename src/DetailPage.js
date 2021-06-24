@@ -30,11 +30,11 @@ const DetailPage = ({ match }) => {
     return <Redirect to="/" />;
   }
     return (
-        <div>
+        <div className="mb-30">
             <div className="flex border-b border-white overflow-scroll mb-4 ">
-                <img src={currentPost.coverImage} className="justify-center m-2 shadow-2xl w-1/3 h-auto object-contain transform hover:scale-105 transition" alt={currentPost.coverImageAlt}/>
+                <img src={currentPost.secondaryImage} className="justify-center m-2 shadow-2xl w-1/3 h-auto object-contain transform hover:scale-105 transition" alt={currentPost.coverImageAlt}/>
                 <img src={currentPost.coverImage} className="m-2 w-1/2 object-contain transform hover:scale-105 transition " alt={currentPost.coverImageAlt}/>
-                <img src={currentPost.coverImage} className="m-2 w-1/3 object-contain transform hover:scale-105 transition" alt={currentPost.coverImageAlt}/>
+                <img src={currentPost.thirdImage} className="m-2 w-1/3 object-contain transform hover:scale-105 transition" alt={currentPost.coverImageAlt}/>
 
             </div>
       <h1 className="text-3xl font-bold flex justify-center font-serif  mb-5 ">{currentPost.title}</h1>

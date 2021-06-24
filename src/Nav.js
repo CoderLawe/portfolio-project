@@ -4,11 +4,7 @@ import './Header.css';
 
 
 import{
-    BadgeCheckIcon,
-    CollectionIcon,
     HomeIcon,
-    LightningBoltIcon,
-    SearchIcon,
     UserIcon,
     CodeIcon,
     PhoneIcon,
@@ -16,12 +12,13 @@ import{
     PlusIcon,
 } from "@heroicons/react/outline"
 import { Link, useHistory } from 'react-router-dom';
+
 function Nav() {
     const history = useHistory();
     return (
 
         <header
-        className="text-white bg-header-image "
+        className="text-white bg-black bg-header-image "
       >
           <div className="flex justify-center sticky top-0">
           <Link to="/">
