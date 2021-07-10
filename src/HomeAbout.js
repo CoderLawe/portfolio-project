@@ -4,15 +4,61 @@ function HomeAbout() {
     return (
         <div>
             <div className=" grid sm:flex">
-                <div className="w-1/2 p-5 justify-center sm:ml-12 sm:p-10 sm:border-r ">
-                    <h1 className="sm:mr-10 mt-10 mb-10 sm:ml-20 text-2xl">Who am I?</h1>
-                    <p>
-                    "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+                <div className="md:w-1/2 p-5 justify-center sm:ml-12 sm:p-10 sm:border-r ">
+                    <h1 className="sm:mr-10 mt-10 mb-10 sm:ml-20 text-2xl border-b border-gray-300">Who am I?</h1>
+                    <p className="p-10">
+                        Hi. My name is Lawe Sosah, and I'm 19 years old. I started programming around 7 years ago, mostly with Java, usually just as a passtime. Around 2017, I improved my knowledge of Python, and soon learned Webscraping, and Web development with the Django web 
+                        framework. With this framework, I built apps all the way from a school management system, to a porfolio/blog, to an interactive webscraper for car buyers, to a full-stack e-commerce website. I am now currently getting more and more familiar with Javascript, and some of its Libraries, specifically ReactJS, which I bult this site with.
+                    
                     </p>
                 </div>
+            
 
-              
-                    <img className="h-60 ml-64 justify-end mt-10 rounded-full" src="img/lawe2.jpeg"/>
+                <div className="sm:w-1/2 grid justify-between">
+                    <div className="flex justify-between mr-5">
+                        <div className="px-2 bg-tradex-home  h-52 w-1/2 group bg-cover  mb-2 hover:opacity-60">
+                            <div className="opacity-0  transform duration-200 group-hover:opacity-100 cursor-pointer">
+                                <div className="bg-gray-200 rounded-2xl">
+                                <h1 className=" mt-20 ml-10 animate-fade-in-down text-black font-extrabold text-2xl ">Simple Designs</h1> 
+
+                                </div>
+                                    
+
+                            </div>
+                        </div>
+
+                        <div className="px-2 bg-ecom-home ml-2 h-52 w-1/2 group bg-cover mb-2 hover:opacity-60">
+                            <div className="opacity-0  transform duration-300   group-hover:opacity-100 cursor-pointer">
+                            <div className="bg-gray-200 rounded-2xl">
+                                <h1 className=" mt-20 ml-10 animate-fade-in-down text-black font-extrabold text-2xl ">Simple Designs</h1> 
+
+                                </div>
+                                    
+
+                            </div>
+                        </div>
+
+                        <div>
+
+                        </div>
+
+                    </div>
+
+                    <div className="flex justify-between mr-5">
+                        <div className=" px-2">
+                            <img className=" mr-5   animate-pulse" src="https://cdn.discordapp.com/attachments/855873527881531402/855921341872996362/unknown.png"/>
+
+                        </div>
+
+        
+
+                    </div>
+                        
+                       
+
+                </div>
+
+
             </div>
         </div>
     )

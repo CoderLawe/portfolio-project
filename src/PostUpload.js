@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { getFirebase } from "./firebase";
+import Navbar from "./Navbar";
 
 
 const labelStyles = {
@@ -41,9 +42,9 @@ const Create = ({ history }) => {
     }
   
     const day = now.getDate();
-    if (day < 10) {
-      day = `0${day}`; // prepend with a 0
-    }
+    // if (day < 10) {
+    //   day = `0${day}`; // prepend with a 0
+    // }
   
     return {
       formatted: `${year}-${month}-${day}`,             // used for sorting
@@ -75,7 +76,11 @@ const Create = ({ history }) => {
   
 
   return (
-    <div className=" justify-start ml-20 w-1/2">
+    <div>
+       <div className="sticky top-0">
+                <Navbar />
+            </div>
+ <div className=" justify-start ml-20 w-1/2 bg-gray-900 rounded-2xl p20">
       <h1 className="justify-center text-4xl border-b border-white-500">Create a new post here</h1>
       <section style={{ margin: "2rem 0" }}>
         <label style={labelStyles} htmlFor="title-field">
@@ -206,6 +211,8 @@ const Create = ({ history }) => {
         </div>
       </section>
     </div>
+    </div>
+   
   );
 };
 

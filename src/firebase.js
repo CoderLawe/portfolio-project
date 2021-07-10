@@ -1,5 +1,9 @@
 import firebase from "firebase/app";
 import database from "firebase/database";
+import 'firebase/firestore';
+
+import "firebase/auth";
+
   const config = {
     apiKey: "AIzaSyCcq13s2oRajNDa0vfCc4R4xmeMCDR8s8Q",
     authDomain: "react-hulu-clone-85e94.firebaseapp.com",
@@ -12,12 +16,23 @@ import database from "firebase/database";
    
   let firebaseCache;
    
-  export const getFirebase = () => {
+
+// const db = firebaseApp.firestore();
+// const auth = firebase.auth();      //Grabbing three servcies from firebase and storing them in variables.
+// const storage = firebase.storage(); //This should take care of the pictures
+
+// export { auth, storage};
+
+const fire = firebase.initializeApp(config);
+const db = firebase.firestore();
+
+
+
+   const getFirebase = () => {
     if (firebaseCache) {
       return firebaseCache;
     }
-   
-    firebase.initializeApp(config);
     firebaseCache = firebase;
     return firebase;
   };
+export { db, getFirebase, fire};

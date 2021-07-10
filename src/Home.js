@@ -7,7 +7,8 @@ import { getFirebase } from "./firebase";
 
 import PostUpload from './PostUpload';
 import { Link } from 'react-router-dom';
-
+import { CodeIcon, CogIcon, CursorClickIcon, DatabaseIcon, EyeIcon, PuzzleIcon } from '@heroicons/react/outline';
+import Message from "./Message";
 function getModalStyle() {
     const top = 50 
     const left = 50
@@ -76,8 +77,49 @@ function Home() {
 
 
     //  MODAL
+    
     <div>
- <div className="p-30 grid sm:grid-cols-2 md:grid-cols-3 ml-5">
+
+      <div className="flex  justify-between sm:ml-20 sm:mr-20 p-10">
+        
+        <div className="w-28 cursor-pointer mr-5 hover:animate-fade-in-down  transform duration-200">
+         <CursorClickIcon />
+         <p className="font-serif sm:text-2xl font-extrabold">FRONTEND</p>
+
+        </div>
+
+    
+        <div className="w-28">
+         <CogIcon />
+         <p className="font-serif sm:text-2xl font-extrabold">BACKEND</p>
+
+
+        </div>
+        
+        <div className="w-28">
+         <DatabaseIcon />
+         <p className="font-serif sm:text-2xl font-extrabold">DATABASE</p>
+
+
+        </div>
+
+        <div className=" w-28">
+            <PuzzleIcon />
+            <p className="font-serif sm:text-2xl font-extrabold">FULLSTACK</p>
+
+
+          
+          
+
+        </div>
+
+      </div>
+
+      <div className="border-b-7 divide-y divide-light-blue-400 mt-10">
+         <h1 className="italic flex justify-center font-serif text-xl divide-y divide-light-blue-400">Some of My projects </h1>
+         <p></p>
+      </div>
+ <div className=" grid sm:grid-cols-2 md:grid-cols-2 ml-5 md:px-40">
  {posts.map(blogPost => (
     <div>
             <Link to={`/${blogPost.slug}`}>
@@ -88,39 +130,10 @@ function Home() {
           {/* </div> */}
           </div>
       ))}
-{/* <Card
-        src="/img/header-image.jpg"
-        title="Django ecommerce site"
-        description="Unique activities we can do together, led by a world of hosts."
-        slug="my-first-blog-post"
 
-    />
-    <Card
-        src="img/ecom_django.png"
-        title="Django Blog/portfolio "
-        description="Spaces that are more than just a place to sleep."
-    />
-    <Card
-        src="img/covid-tracker-large.png"
-        title="React Covid tracker"
-        description="Comfortable privatse places, with room for friends or family."
-    />
-    <Card
-        src="https://a0.muscache.com/im/pictures/15159c9c-9cf1-400e-b809-4e13f286fa38.jpg?im_w=720"
-        title="Django Blog/portfolio "
-        description="Spaces that are more than just a place to sleep."
-    />
-    <Card
-        src="https://a0.muscache.com/im/pictures/15159c9c-9cf1-400e-b809-4e13f286fa38.jpg?im_w=720"
-        title="Django Blog/portfolio "
-        description="Spaces that are more than just a place to sleep."
-    />
-    <Card
-        src="https://a0.muscache.com/im/pictures/15159c9c-9cf1-400e-b809-4e13f286fa38.jpg?im_w=720"
-        title="Django Blog/portfolio "
-        description="Spaces that are more than just a place to sleep."
-    /> */}
+
     </div>
+    <Message />
    
    <div>
    </div>

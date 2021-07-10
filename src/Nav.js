@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import NavItem from './NavItem';
 import './Header.css';
 import './utils.js';
@@ -14,48 +14,68 @@ import{
     MenuIcon,
 } from "@heroicons/react/outline"
 import { Link, useHistory } from 'react-router-dom';
+import Navbar from './Navbar';
+import Typewriter from 'typewriter-effect';
 
-function Nav() {
+function Nav({ handleLogout }) {
     const history = useHistory();
+    const[open,setOpen] = useState(false);
 
 
     return (
 
-        <header
-        className="text-white bg-black bg-header-image"
+        <div
+        className="text-white bg-black bg-header-image bg-fixed bg-no-repeat bg-cover"
       >
-        <div class="px-4 cursor-pointer md:hidden" id="burger">
-           <NavItem Icon={MenuIcon}/>
-          </div>
-          <div className="flex justify-center sticky top-0" id="menu">
-            <Link to="/">
-              <NavItem title="Home" Icon={HomeIcon} />
-            </Link>
-            <Link to="/about">
-              <NavItem title="About" Icon={UserIcon}/>
-            </Link>
-            <Link to="/code">
-              <NavItem title="My Code" Icon={CodeIcon}/>
-            </Link>
-            <NavItem title="Contacts" Icon={PhoneIcon}/>
-            <Link to="/create">
-              <NavItem title="Add" Icon={PlusIcon}/>
-            </Link>
-            <NavItem title="Login" Icon={LoginIcon}/>
-
-          </div>
+      {/* <video className="w-fixed z-0" src="https://www.youtube.com/watch?v=qXfd2kK3hgQ" autoplay loop mute/> */}
+        <div className="sticky top-0">
+          <Navbar handleLogout={handleLogout}/>
+        </div>
 
         {/* Background image */}
         <div className="ml-30 pt-140 h-auto  ">
           {/* title */}   
           <div className="grid justify-end mr-10 ">
-            <h1 className="block mb-11 text-7xl border-b-8 text-grey-300">Lawe Sosah</h1>
-
-            <p className="block text-6xl text-gray-400">Web Developer</p>
-        
+          <div className="block mb-11 sm:text-7xl sm:border-b-8  border-b-4 text-grey-300 text-5xl">
+          <Typewriter 
+              onInit ={(typewriter) =>{
+                typewriter.typeString("Lawe Sosah")
+                .pauseFor(10000)
+                .deleteAll()
+                .typeString("Lawe Sosah")
+                .start()
+              }}
+            />
           </div>
-<p className="flex justify-end ml-40 mt-10 text-gray-200 mr-10">"To Code, or not to code, that is...the question! </p>
-<p className="flex justify-end ml-40 text-gray-400 mr-10 text-bold">-Lawe Sosah </p>
+           <div  className="block text-5xl text-gray-300 sm:text-gray-400">
+           <Typewriter 
+              onInit ={(typewriter) =>{
+                typewriter
+                .pauseFor(4000)
+                .typeString("Web developer")
+                .pauseFor(6000)
+                .deleteAll()
+                .pauseFor(3000)
+
+                .typeString("Web developer")
+
+                .start()
+              }}
+            />
+           </div>
+
+        
+        </div>
+        <div>
+           <p className="flex justify-end ml-40 mt-10 text-gray-200 mr-10">"To Code, or not to code, that is...the question! </p>
+             <p className="flex justify-end ml-40 text-gray-400 mr-10 text-bold">-Lawe Sosah </p>
+
+             <div className="flex justify-center">
+          <img  className="rounded-full" src="https://avatars.githubusercontent.com/u/52962217?v=4"/>
+        </div>
+        </div>
+
+       
 
   
           {/* 2 buttons */}
@@ -68,20 +88,11 @@ function Nav() {
           
         </div>
 
-      </header>
+      </div>
 
       
     )
-  const burger = document.querySelector('#burger');
-const menu = document.querySelector('#menu');
-
-  burger.addEventListener('click' ,() =>{
-      if(menu.classList.contains('hidden')){
-          menu.classList.remove('hidden');
-      }else{
-          menu.classList.add('hidden')
-      }
-  })
+  
 }
 
 
