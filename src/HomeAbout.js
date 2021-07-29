@@ -9,7 +9,7 @@ function HomeAbout() {
             <div className=" grid sm:flex">
                 <div className="md:w-1/2 p-5 justify-center sm:ml-12 sm:p-10 sm:border-r ">
                     <h1 className="sm:mr-10 mt-10 mb-10 sm:ml-20 text-2xl border-b border-gray-300">Who am I?</h1>
-                <div data-aos="flip-left">
+                <div >
                 <p className="p-10">
                         Hi. My name is Lawe Sosah, and I'm 19 years old. I started programming around 7 years ago, mostly with Java, usually just as a passtime. Around 2017, I improved my knowledge of Python, and soon learned Webscraping, and Web development with the Django web 
                         framework. 
@@ -18,9 +18,6 @@ function HomeAbout() {
                 </div>
                 <p data-aos="zoom-in">With this framework, I built apps all the way from a school management system, to a porfolio/blog, to an interactive webscraper for car buyers, to a full-stack e-commerce website. I am now currently getting more and more familiar with Javascript, and some of its Libraries, specifically ReactJS, which I bult this site with.</p>
 
-                   
-
-                
                 </div>
             
 

@@ -32,6 +32,7 @@ module.exports = {
         'cartopia-home':"url('https://media.discordapp.net/attachments/817048198022430761/855492893045030942/IMG-20210305-WA0002.jpg?width=944&height=468')",
         'ecom-home':"url('https://media.discordapp.net/attachments/817048198022430761/855492295620558908/IMG-20210531-WA0004.jpg?width=749&height=468')",
             }),
+      
      fontSize:{
       'lawe-xl': ['9rem', { lineHeight: '1' }],
      }

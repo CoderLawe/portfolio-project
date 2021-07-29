@@ -27,7 +27,7 @@ function Navbar({handleLogout}) {
                     </Link>
 
                 </div>
-                <div className="w-10 ml-40">
+                <div className="w-10 ml-44">
                     <div className={open ? 'hidden' : 'visible'}>
                         <MenuIcon open={open} onClick={()=>setOpen(!open)}/>
                     </div>

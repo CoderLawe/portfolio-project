@@ -120,8 +120,53 @@ function Home() {
          <p></p>
       </div>
  <div className=" grid sm:grid-cols-2 md:grid-cols-2 ml-5 md:px-40">
- {posts.map(blogPost => (
-    <div>
+ {posts.slice(0,1).map(blogPost => (
+    <div data-aos="fade-up-left">
+            <Link to={`/${blogPost.slug}`}>
+              <Card key={blogPost.slug} src={blogPost.coverImage} title={blogPost.title} description = {blogPost.shortDescription} content = {blogPost.description}/>
+              {/* <Link to={`/${blogPost.slug}`}>Continue reading...</Link> */}
+            </Link>
+            
+          {/* </div> */}
+          </div>
+      ))}
+
+
+{posts.slice(1,2).map(blogPost => (
+    <div data-aos="fade-up-right">
+            <Link to={`/${blogPost.slug}`}>
+              <Card key={blogPost.slug} src={blogPost.coverImage} title={blogPost.title} description = {blogPost.shortDescription} content = {blogPost.description}/>
+              {/* <Link to={`/${blogPost.slug}`}>Continue reading...</Link> */}
+            </Link>
+            
+          {/* </div> */}
+          </div>
+      ))}
+
+{posts.slice(2,3).map(blogPost => (
+    <div data-aos="fade-down-right">
+            <Link to={`/${blogPost.slug}`}>
+              <Card key={blogPost.slug} src={blogPost.coverImage} title={blogPost.title} description = {blogPost.shortDescription} content = {blogPost.description}/>
+              {/* <Link to={`/${blogPost.slug}`}>Continue reading...</Link> */}
+            </Link>
+            
+          {/* </div> */}
+          </div>
+      ))}
+
+{posts.slice(3,4).map(blogPost => (
+    <div data-aos="fade-down-left">
+            <Link to={`/${blogPost.slug}`}>
+              <Card key={blogPost.slug} src={blogPost.coverImage} title={blogPost.title} description = {blogPost.shortDescription} content = {blogPost.description}/>
+              {/* <Link to={`/${blogPost.slug}`}>Continue reading...</Link> */}
+            </Link>
+            
+          {/* </div> */}
+          </div>
+      ))}
+
+{posts.slice(5,).map(blogPost => (
+    <div data-aos="fade-down-left">
             <Link to={`/${blogPost.slug}`}>
               <Card key={blogPost.slug} src={blogPost.coverImage} title={blogPost.title} description = {blogPost.shortDescription} content = {blogPost.description}/>
               {/* <Link to={`/${blogPost.slug}`}>Continue reading...</Link> */}

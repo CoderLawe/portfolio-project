@@ -12,7 +12,7 @@ function Card({src, title, description, Key}) { //Props are properties that we c
     }, [])
     return (
         <div className="group p-2 mt-8  cursor-pointer transition duration-200 transform  ">
-            <div className="group-hover:border-l-8 border-blue-500" data-aos="flip-left">
+            <div className="group-hover:border-l-8 border-blue-500" >
                 <img className="rounded-xl sm:hover:scale-105 transform duration-200"  src={src} alt=""/>   
             </div>
        
