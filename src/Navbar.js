@@ -20,7 +20,7 @@ function Navbar({handleLogout}) {
     const [open, setOpen] = useState(false);
     return (
         <div>
-            <div className="flex justify-between cursor-pointer opacity-80 sticky top-0 h-15 p-5 sm:hidden bg-black">
+            <div className="flex justify-between cursor-pointer opacity-80 sticky top-0 h-15 p-5 md:hidden bg-black ">
                 <div>
                     <Link to="/">
                          <h1 className="text-2xl font-serif font-extrabold cursor-pointer">Lawe Sosah</h1>
@@ -77,18 +77,17 @@ function Navbar({handleLogout}) {
             </div>
                   
           <div className="sm:flex justify-center sticky top-0  sm:visible hidden " id="menu">
-          <h1 className="mt-5 justify-end">Welcome Lawe</h1>
 
             <Link to="/">
               <NavItem title="Home" Icon={HomeIcon} />
             </Link>
-            <Link to="/about">
+            {/* <Link to="/about">
               <NavItem title="About" Icon={UserIcon}/>
-            </Link>
-            <Link to="/code">
+            </Link> */}
+            {/* <Link to="/code">
               <NavItem title="My Code" Icon={CodeIcon}/>
-            </Link>
-            <Link to="/create">
+            </Link> */}
+            {/* <Link to="/create">
               <NavItem title="Add" Icon={PlusIcon}/>
             </Link>
             <Link to="/signin">
@@ -96,7 +95,7 @@ function Navbar({handleLogout}) {
 
             </Link>
             
-            <NavItem onClick={handleLogout} title="Logout" Icon={UserRemoveIcon}/>
+            <NavItem onClick={handleLogout} title="Logout" Icon={UserRemoveIcon}/> */}
         
 
 

@@ -43,16 +43,29 @@ const DetailPage = ({ match }) => {
         <div className="sticky top-0">
           <Navbar />
         </div>
+
         <div>
-        <h1 className="sm:text-3xl text-xl py-5 font-bold flex justify-center font-serif  mb-5 ">{currentPost.title}</h1>
+        <h1 className="sm:text-3xl text-xl py-5 font-bold flex justify-center font-serif  mb-5 border-b border-coolYellow">{currentPost.title}</h1>
                   <em className="flex justify-center">Written on {currentPost.datePretty}</em>
         </div>
-        <div className="bg-gray-800 p-10 md:p-20 md:mr-32 ml-10 mr-10 md:ml-32 rounded-2xl">
+        <div>
 
-            <div>
-              <p>{currentPost.content}</p>
-            </div>
+
+        <div className="md:flex justify-center">
+           <div className="bg-gray-800  md:p-14 md:mr-32 ml-5 mr-10 md:ml-32 rounded-2xl flex w-1/2">
+
+      <div>
+        <p>{currentPost.content}</p>
+      </div>
+    </div>
+    {/* <div>
+      <p className="font-serif font-bold text-3xl">Live Demo</p>
+       <iframe width="500" height="500" src="https://amazon-clone-psi-nine.vercel.app/"/>
+
+    </div> */}
+          </div>
         </div>
+      
         
 
 
@@ -66,6 +79,7 @@ const DetailPage = ({ match }) => {
 
             </div>
         </div> */}
+         
         <div className="sm:flex justify-between  p-10 overflow-x-scroll">
                <div className="mr-2">
                <img src={currentPost.secondaryImage} className="justify-center m-2   object-contain transform hover:scale-105 transition" alt={currentPost.coverImageAlt}/>
@@ -85,9 +99,12 @@ const DetailPage = ({ match }) => {
      
      
         </div>
-          
-        <Message />
-      </div>
+          <div className="rounded-2xl py-5 bg-white text-black">
+            <p className="p-5 text-coolYellow cursor-pointer"><strong className="text-black">Link to live demo</strong> - {currentPost.link}</p>
+          </div>
+        {/* <Message /> */}
+        </div>
+       
        
     )
 }

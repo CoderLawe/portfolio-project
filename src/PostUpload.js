@@ -24,6 +24,7 @@ const Create = ({ history }) => {
   const [coverImage, setCoverImage] = useState("");
   const [secondaryImage, setSecondaryImage] = useState("");
   const [thirdImage, setThirdImage] = useState("");
+  const [link,setLink] = useState("");
 
   const [coverImageAlt, setCoverImageAlt] = useState("");
   const [content, setContent] = useState("");
@@ -167,6 +168,19 @@ const Create = ({ history }) => {
           }}
         />
 
+<label style={labelStyles} htmlFor="cover-image-alt-field-3">
+    Link to live
+        </label>
+        <input
+          style={inputStyles}
+          id="cover-image-alt-field-3"
+          type="text"
+          value={link}
+          className="text-black"
+          onChange={({ target: { value } }) => {
+            setLink(value);
+          }}
+        />
         <label style={labelStyles} htmlFor="short-description">
           Brief description
         </label>

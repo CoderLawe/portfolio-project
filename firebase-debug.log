@@ -1,0 +1,117 @@
+[debug] [2021-08-05T10:38:16.469Z] ----------------------------------------------------------------------
+[debug] [2021-08-05T10:38:16.473Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2021-08-05T10:38:16.474Z] CLI Version:   9.10.0
+[debug] [2021-08-05T10:38:16.474Z] Platform:      darwin
+[debug] [2021-08-05T10:38:16.474Z] Node Version:  v14.16.1
+[debug] [2021-08-05T10:38:16.476Z] Time:          Thu Aug 05 2021 13:38:16 GMT+0300 (East Africa Time)
+[debug] [2021-08-05T10:38:16.476Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-08-05T10:38:16.665Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-08-05T10:38:16.666Z] > authorizing via signed-in user (sosahlawe@gmail.com)
+[debug] [2021-08-05T10:38:16.666Z] [iam] checking project react-hulu-clone-85e94 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2021-08-05T10:38:16.669Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-08-05T10:38:16.670Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-08-05T10:38:46.725Z] [iam] error while checking permissions, command may fail: FirebaseError: Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[debug] [2021-08-05T10:38:46.727Z] > refreshing access token with scopes: []
+[debug] [2021-08-05T10:38:46.727Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-08-05T10:39:16.729Z] Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[debug] [2021-08-05T10:39:46.743Z] FirebaseError: Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+    at invalidCredentialError (/usr/local/lib/node_modules/firebase-tools/lib/auth.js:141:12)
+    at refreshTokens (/usr/local/lib/node_modules/firebase-tools/lib/auth.js:450:15)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async Client.getAccessToken (/usr/local/lib/node_modules/firebase-tools/lib/apiv2.js:144:23)
+    at async Client.addAuthHeader (/usr/local/lib/node_modules/firebase-tools/lib/apiv2.js:135:21)
+    at async Client.request (/usr/local/lib/node_modules/firebase-tools/lib/apiv2.js:93:34)
+    at async Object.getFirebaseProject (/usr/local/lib/node_modules/firebase-tools/lib/management/projects.js:290:21)
+    at async Object.getDefaultHostingSite (/usr/local/lib/node_modules/firebase-tools/lib/getDefaultHostingSite.js:8:21)
+    at async requireHostingSite (/usr/local/lib/node_modules/firebase-tools/lib/requireHostingSite.js:9:18)
+    at async Object.fn (/usr/local/lib/node_modules/firebase-tools/lib/commands/deploy.js:66:9)
+    at async /usr/local/lib/node_modules/firebase-tools/lib/command.js:169:17
+[error] 
+[error] Error: Failed to get Firebase project react-hulu-clone-85e94. Please make sure the project exists and your account has permission to access it.
+[debug] [2021-08-05T11:00:06.125Z] ----------------------------------------------------------------------
+[debug] [2021-08-05T11:00:06.129Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2021-08-05T11:00:06.129Z] CLI Version:   9.10.0
+[debug] [2021-08-05T11:00:06.129Z] Platform:      darwin
+[debug] [2021-08-05T11:00:06.130Z] Node Version:  v14.16.1
+[debug] [2021-08-05T11:00:06.131Z] Time:          Thu Aug 05 2021 14:00:06 GMT+0300 (East Africa Time)
+[debug] [2021-08-05T11:00:06.131Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-08-05T11:00:06.286Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-08-05T11:00:06.286Z] > authorizing via signed-in user (sosahlawe@gmail.com)
+[debug] [2021-08-05T11:00:06.287Z] [iam] checking project react-hulu-clone-85e94 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2021-08-05T11:00:06.290Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-08-05T11:00:06.290Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-08-05T11:00:36.346Z] [iam] error while checking permissions, command may fail: FirebaseError: Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[debug] [2021-08-05T11:00:36.348Z] > refreshing access token with scopes: []
+[debug] [2021-08-05T11:00:36.348Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-08-05T11:01:06.355Z] Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[debug] [2021-08-05T11:01:36.364Z] FirebaseError: Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+    at invalidCredentialError (/usr/local/lib/node_modules/firebase-tools/lib/auth.js:141:12)
+    at refreshTokens (/usr/local/lib/node_modules/firebase-tools/lib/auth.js:450:15)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async Client.getAccessToken (/usr/local/lib/node_modules/firebase-tools/lib/apiv2.js:144:23)
+    at async Client.addAuthHeader (/usr/local/lib/node_modules/firebase-tools/lib/apiv2.js:135:21)
+    at async Client.request (/usr/local/lib/node_modules/firebase-tools/lib/apiv2.js:93:34)
+    at async Object.getFirebaseProject (/usr/local/lib/node_modules/firebase-tools/lib/management/projects.js:290:21)
+    at async Object.getDefaultHostingSite (/usr/local/lib/node_modules/firebase-tools/lib/getDefaultHostingSite.js:8:21)
+    at async requireHostingSite (/usr/local/lib/node_modules/firebase-tools/lib/requireHostingSite.js:9:18)
+    at async Object.fn (/usr/local/lib/node_modules/firebase-tools/lib/commands/deploy.js:66:9)
+    at async /usr/local/lib/node_modules/firebase-tools/lib/command.js:169:17
+[error] 
+[error] Error: Failed to get Firebase project react-hulu-clone-85e94. Please make sure the project exists and your account has permission to access it.
+[debug] [2021-08-05T11:15:04.756Z] ----------------------------------------------------------------------
+[debug] [2021-08-05T11:15:04.759Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2021-08-05T11:15:04.760Z] CLI Version:   9.10.0
+[debug] [2021-08-05T11:15:04.760Z] Platform:      darwin
+[debug] [2021-08-05T11:15:04.760Z] Node Version:  v14.16.1
+[debug] [2021-08-05T11:15:04.794Z] Time:          Thu Aug 05 2021 14:15:04 GMT+0300 (East Africa Time)
+[debug] [2021-08-05T11:15:04.794Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-08-05T11:15:05.439Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-08-05T11:15:05.439Z] > authorizing via signed-in user (sosahlawe@gmail.com)
+[debug] [2021-08-05T11:15:05.439Z] [iam] checking project react-hulu-clone-85e94 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2021-08-05T11:15:05.443Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-08-05T11:15:05.446Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-08-05T11:15:35.476Z] [iam] error while checking permissions, command may fail: FirebaseError: Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[debug] [2021-08-05T11:15:35.478Z] > refreshing access token with scopes: []
+[debug] [2021-08-05T11:15:35.478Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-08-05T11:16:05.487Z] Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[debug] [2021-08-05T11:16:35.602Z] FirebaseError: Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+    at invalidCredentialError (/usr/local/lib/node_modules/firebase-tools/lib/auth.js:141:12)
+    at refreshTokens (/usr/local/lib/node_modules/firebase-tools/lib/auth.js:450:15)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async Client.getAccessToken (/usr/local/lib/node_modules/firebase-tools/lib/apiv2.js:144:23)
+    at async Client.addAuthHeader (/usr/local/lib/node_modules/firebase-tools/lib/apiv2.js:135:21)
+    at async Client.request (/usr/local/lib/node_modules/firebase-tools/lib/apiv2.js:93:34)
+    at async Object.getFirebaseProject (/usr/local/lib/node_modules/firebase-tools/lib/management/projects.js:290:21)
+    at async Object.getDefaultHostingSite (/usr/local/lib/node_modules/firebase-tools/lib/getDefaultHostingSite.js:8:21)
+    at async requireHostingSite (/usr/local/lib/node_modules/firebase-tools/lib/requireHostingSite.js:9:18)
+    at async Object.fn (/usr/local/lib/node_modules/firebase-tools/lib/commands/deploy.js:66:9)
+    at async /usr/local/lib/node_modules/firebase-tools/lib/command.js:169:17
+[error] 
+[error] Error: Failed to get Firebase project react-hulu-clone-85e94. Please make sure the project exists and your account has permission to access it.

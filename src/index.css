@@ -12,3 +12,7 @@
   @apply bg-[#07202A] text-gray-50;
 
 } */
+
+.test{
+  @apply bg-coolYellow
+}

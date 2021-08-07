@@ -6,19 +6,14 @@ import Aos from "aos";
 function Card({src, title, description, Key}) { //Props are properties that we can pass into the component that make ti look different. Rhey can be reused
 
 
-    useEffect(() => {
-    Aos.init({duration:2000})
-       
-    }, [])
     return (
-        <div className="group p-2 mt-8  cursor-pointer transition duration-200 transform  ">
+        <div className="group p-2 mt-8  cursor-pointer transition duration-200 transform ease-out ">
             <div className="group-hover:border-l-8 border-blue-500" >
                 <img className="rounded-xl sm:hover:scale-105 transform duration-200"  src={src} alt=""/>   
             </div>
-       
             <div className="card__info rounded-full">
                 <div className="mt-5">
-                     <h2 className="md:opacity-0 group-hover:opacity-100 border-b border-gray-400  p-5 transform duration-500 text-2xl font-serif  font-extrabold">{title}</h2>
+                     <h2 className="md:opacity-0 group-hover:opacity-90  border-b-2 border-white  p-5 transform duration-500 text-2xl font-serif  font-extrabold">{title}</h2>
 
                 </div>
                 <div>

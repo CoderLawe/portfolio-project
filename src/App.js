@@ -12,6 +12,9 @@ import Signin from './Signin';
 import { useEffect, useState } from 'react';
 import { fire } from './firebase';
 import ViewMessages from './ViewMessages';
+import Aos from "aos";
+
+
 
 
 
@@ -93,6 +96,12 @@ function App() {
   useEffect(() =>{
       authListener();
   },[]);
+
+  useEffect(() => {
+    Aos.init({duration:2000})
+       
+    }, [])
+
   return (
     <div className="app bg-primary text-gray-50">
       <Router>

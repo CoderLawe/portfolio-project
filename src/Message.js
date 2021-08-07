@@ -32,8 +32,8 @@ const postMessage = (event) =>{
     return (
         <div>
         <div className="flex justify-center items-center">
-        <div className="md:w-1/3 bg-gray-800 text-gray-200 shadow-lg rounded-2xl sm:ml-5 p-5">
-          <p className="font-serif font-extrabold flex justify-center  border-b border-gray-200 py-5">Contact me here</p>
+        <div className="text-gray-200 shadow-lg rounded-2xl sm:ml-5 p-5 bg-opacity-50">
+          <p className="font-serif font-extrabold flex justify-center  border-b border-gray-200 py-5">Let's get in touch! </p>
          
 
         <div className="p-5 items-center flex-col">
@@ -45,7 +45,7 @@ const postMessage = (event) =>{
 
         <div className=" ml-3 py-2">
             <label className="sm:mr-4 mr-2 font-serif">Email:</label>
-            <input className=" rounded-md p-2"type="text" value={email}
+            <input className="text-black rounded-md p-2"type="text" value={email}
              onChange={(e) => setEmail(e.target.value)}
                placeholder="Enter your email address"/>
           </div>
