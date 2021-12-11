@@ -14,7 +14,7 @@ function Mycode() {
             <h1 className="text-white font-serif font-bold flex justify-center text-xl py-3">Click any of the links below for my Github, or contact me to access my code</h1>
                 <div>
                     <div className="flex mt-10 p-2">
-                         <p className="mr-5">Github -> </p>
+                         <p className="mr-5">Github  </p>
                          <img className="rounded-2xl opacity-80 cursor-pointer" src="img/github3.png" alt="github image"/>    
                     </div>
                 </div>

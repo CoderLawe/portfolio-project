@@ -9,10 +9,12 @@ import Mycode from './Mycode';
 import Footer from './Footer';
 import HomeAbout from './HomeAbout';
 import Signin from './Signin';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { fire } from './firebase';
 import ViewMessages from './ViewMessages';
 import Aos from "aos";
+import { ScrolledProvider, ScrolledContext } from './context/PageContext';
+import Navbar from './Navbar';
 
 
 
@@ -27,6 +29,8 @@ function App() {
   const[emailError, setEmailError] = useState('');
   const[passwordError, setPasswordError] = useState('');
   const[hasAccount, setHasAccount] = useState(false);
+  const [link, setLink] = useState('');
+  const [scrolled, setScrolled] = useContext(ScrolledContext)
 
 
   const clearInputs =() =>{
@@ -93,20 +97,39 @@ function App() {
       })
   }
 
+  const checkScrolled = () => {
+      if(window.scrollY > 60){
+        setScrolled(true);
+        console.log('scrolled', scrolled)
+      }else{
+        setScrolled(false);
+      }
+  }
+
   useEffect(() =>{
       authListener();
   },[]);
+
+  // useEffect(() => {
+  //   checkScrolled()
+  // },[scrolled])
+  
 
   useEffect(() => {
     Aos.init({duration:2000})
        
     }, [])
 
+  
+    window.addEventListener('scroll', checkScrolled)
   return (
-    <div className="app bg-primary text-gray-50">
+    <div className="app bg-nav-image bg-fixed text-gray-50">
       <Router>
-      <div className="bg-primary">
+      <div className="">
         {/* Header */}
+        <div className="sticky top-0 z-50">
+          <Navbar />
+        </div>
       <Switch>
 
    
@@ -143,6 +166,9 @@ function App() {
     <Route path="/create" component={PostUpload} />
 
     <Route path="/:slug" component={DetailPage} />
+    {/* <Route path="/:slug">
+      <DetailPage />
+    </Route> */}
 
     <Route path="/">
       <Nav handleLogout={handleLogout}/>
@@ -159,7 +185,6 @@ function App() {
       </div>
       </Router>
      
-      
 
     </div>
   );

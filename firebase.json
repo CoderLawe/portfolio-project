@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site":"lawe-portfolio",
     "public": "build",
     "ignore": [
       "firebase.json",

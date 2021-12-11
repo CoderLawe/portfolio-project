@@ -1,11 +1,9 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import NavItem from './NavItem';
 import './Header.css';
 import './utils.js';
 import ScrollAnimation from 'react-animate-on-scroll';
 import Typewriter from "typewriter-effect"
-
-
 import{
     HomeIcon,
     UserIcon,
@@ -17,25 +15,28 @@ import{
 } from "@heroicons/react/outline"
 import { Link, useHistory } from 'react-router-dom';
 import Navbar from './Navbar';
+import { ScrolledContext } from './context/PageContext';
+
+
+
 
 function Nav({ handleLogout }) {
     const history = useHistory();
     const[open,setOpen] = useState(false);
+    const [scrolled, setScrolled] = useContext(ScrolledContext);
 
 
     return (
 
-        <div
-        className="text-white bg-nav-image bg-cover bg-fixed"
+        <section
+        className="text-white   bg-cover bg-fixed" 
+        id="home"
       >
         
       {/* <video className="video" src="img/video-2.mp4" autoplay loop mute/> */}
-        <div className="sticky top-0">
-          <Navbar handleLogout={handleLogout}/>
-        </div>
-
+     
         {/* Background image */}
-        <div className="ml-30 pt-140 h-auto  ">
+        <div className={scrolled ? "ml-30 pt-140 h-auto bg-black bg-opacity-75 transition-all duration-500 mx-1 md:mx-5 ease-in-out": "transition-all duration-300 ease-in-out ml-30 pt-140 h-auto"}>
           {/* title */}   
           <div className="grid justify-center mr-10 ">
           <div className="block mb-11 sm:text-7xl justify-center  font-serif text-grey-300 text-4xl">
@@ -103,8 +104,8 @@ function Nav({ handleLogout }) {
             />
            </div> */}
         <div>
-           <p className="flex justify-end ml-40 mt-10 text-gray-200 mr-10">"Java, is to Javascript, what car is to carpet" </p>
-             <p className="flex justify-end ml-40 text-white mr-10 font-bold">-Chris Heilman </p>
+           <p data-aos="fade-in" data-aos-duration="3000" className="flex justify-end ml-40 mt-10 text-gray-200 mr-10">"In order to be irreplacable, one must always be different" </p>
+             <p className="flex justify-end ml-40 text-white mr-10 font-bold">- Coco Chanel </p>
 
              <div data-aos = "zoom-in"className="flex justify-center shadow-lg">
                <img  className="rounded-full mb-5" src="https://avatars.githubusercontent.com/u/52962217?v=4"/>
@@ -124,7 +125,7 @@ function Nav({ handleLogout }) {
           
         </div>
 
-      </div>
+      </section>
 
       
     )

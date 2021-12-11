@@ -39,10 +39,8 @@ const DetailPage = ({ match }) => {
   }
 
     return (
-      <div>
-        <div className="sticky top-0">
-          <Navbar />
-        </div>
+      <div className="bg-nav-image bg-fixed">
+    
 
         <div>
         <h1 className="sm:text-3xl text-xl py-5 font-bold flex justify-center font-serif  mb-5 border-b border-coolYellow">{currentPost.title}</h1>
@@ -52,12 +50,11 @@ const DetailPage = ({ match }) => {
 
 
         <div className="md:flex justify-center">
-           <div className="bg-gray-800  md:p-14 md:mr-32 ml-5 mr-10 md:ml-32 rounded-2xl flex w-1/2">
-
-      <div>
-        <p>{currentPost.content}</p>
-      </div>
-    </div>
+            <div className="bg-gray-800 bg-opacity-70  rounded-2xl flex justify-center md:w-1/2">
+              <div className=" text-gray-200 p-20">
+                <p>{currentPost.content}</p>
+              </div>
+            </div>
     {/* <div>
       <p className="font-serif font-bold text-3xl">Live Demo</p>
        <iframe width="500" height="500" src="https://amazon-clone-psi-nine.vercel.app/"/>
@@ -80,7 +77,7 @@ const DetailPage = ({ match }) => {
             </div>
         </div> */}
          
-        <div className="sm:flex justify-between  p-10 overflow-x-scroll">
+        <div className="sm:flex justify-between   p-10 overflow-x-scroll">
                <div className="mr-2">
                <img src={currentPost.secondaryImage} className="justify-center m-2   object-contain transform hover:scale-105 transition" alt={currentPost.coverImageAlt}/>
                 </div>
@@ -100,7 +97,7 @@ const DetailPage = ({ match }) => {
      
         </div>
           <div className="rounded-2xl py-5 bg-white text-black">
-            <p className="p-5 text-coolYellow cursor-pointer"><strong className="text-black">Link to live demo</strong> - {currentPost.link}</p>
+            <p className="p-5 text-coolYellow cursor-pointer"><strong className="text-black">Link to live demo</strong> - <a target="_blank" href={currentPost.link}>{currentPost.link}</a></p>
           </div>
         {/* <Message /> */}
         </div>

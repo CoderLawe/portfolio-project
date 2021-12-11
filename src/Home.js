@@ -7,9 +7,10 @@ import { getFirebase } from "./firebase";
 
 import PostUpload from './PostUpload';
 import { Link } from 'react-router-dom';
-import { CodeIcon, CogIcon, CursorClickIcon, DatabaseIcon, EyeIcon, PuzzleIcon } from '@heroicons/react/outline';
+import { CodeIcon, CogIcon, CursorClickIcon, DatabaseIcon, EyeIcon, PlusIcon, PuzzleIcon } from '@heroicons/react/outline';
 import Message from "./Message";
 import Aos from 'aos';
+import Contact from './Contact';
 function getModalStyle() {
     const top = 50 
     const left = 50
@@ -43,7 +44,7 @@ function Home() {
     
 
     useEffect(() => {
-      Aos.init({duration:2000})
+      Aos.init({duration:3000})
          
       }, [])
   
@@ -91,121 +92,102 @@ function Home() {
       <div className="">
 
       </div>
-      <div className="flex  justify-between sm:ml-20 sm:mr-20 p-10">
-        
-        <div className="w-28 cursor-pointer mr-5 hover:animate-fade-in-down  transform duration-200">
-         <CursorClickIcon />
-         <p className="font-serif sm:text-2xl font-extrabold">FRONTEND</p>
-
-        </div>
+    <div className="">
+      <Contact />
+    </div>
 
     
-        <div className="w-28">
-         <CogIcon />
-         <p className="font-serif sm:text-2xl font-extrabold">BACKEND</p>
 
+<div className="">
 
-        </div>
-        
-        <div className="w-28">
-         <DatabaseIcon />
-         <p className="font-serif sm:text-2xl font-extrabold">DATABASE</p>
-
-
-        </div>
-
-        <div className=" w-28">
-            <PuzzleIcon />
-            <p className="font-serif sm:text-2xl font-extrabold">FULLSTACK</p>
-
-
-          
-          
-
-        </div>
-
-      </div>
-
-      <div className="border-b-7 divide-y divide-light-blue-400 mt-10">
-         <h1 className="italic flex justify-center font-serif text-xl divide-y divide-light-blue-400">Some of My projects </h1>
+      <div className=" bg-black bg-opacity-75 mx-1 md:mx-5">
+        <h1 className="italic flex justify-center font-serif text-2xl py-6 font-bold   text-coolYellow">Here are a few of My projects </h1>
       
       </div>
- <div className=" grid sm:grid-cols-2 md:grid-cols-2 ml-5 md:px-40 bg-nav-image bg-cover bg-fixed">
-  
- {posts.slice(0,1).map(blogPost => (
-    <div data-aos="fade-up-left">
-            <Link to={`/${blogPost.slug}`}>
-              <Card key={blogPost.slug} src={blogPost.coverImage} title={blogPost.title} description = {blogPost.shortDescription} content = {blogPost.description}/>
-              {/* <Link to={`/${blogPost.slug}`}>Continue reading...</Link> */}
-            </Link>
-            
-          {/* </div> */}
-          </div>
-      ))}
+      {posts ? (
+        <div className=" grid sm:grid-cols-2 md:grid-cols-2 mx-1 md:mx-5  md:px-40 bg-black bg-opacity-75 bg-cover bg-fixed" id="projects">
+
+{posts.slice(0,1).map(blogPost => (
+   <div data-aos="fade-in">
+     <div className="flex space-x-3 justify-between">
+       <Link to={`/${blogPost.slug}`}>
+               <Card key={blogPost.slug} src={blogPost.coverImage} title={blogPost.title} description = {blogPost.shortDescription} content = {blogPost.description} code={blogPost.code}/>
+               {/* <Link to={`/${blogPost.slug}`}>Continue reading...</Link> */}
+       </Link>
+     </div>
+          
+           
+         {/* </div> */}
+         </div>
+     ))}
 
 
 {posts.slice(1,2).map(blogPost => (
-    <div data-aos="fade-up-right">
-            <Link to={`/${blogPost.slug}`}>
-              <Card key={blogPost.slug} src={blogPost.coverImage} title={blogPost.title} description = {blogPost.shortDescription} content = {blogPost.description}/>
-              {/* <Link to={`/${blogPost.slug}`}>Continue reading...</Link> */}
-            </Link>
-            
-          {/* </div> */}
-          </div>
-      ))}
+   <div data-aos="fade-in">
+           <Link to={`/${blogPost.slug}`}>
+             <Card key={blogPost.slug} src={blogPost.coverImage} title={blogPost.title} description = {blogPost.shortDescription} content = {blogPost.description} code={blogPost.link}/>
+             {/* <Link to={`/${blogPost.slug}`}>Continue reading...</Link> */}
+           </Link>
+           
+         {/* </div> */}
+         </div>
+     ))}
 
 {posts.slice(2,3).map(blogPost => (
-    <div data-aos="fade-down-right">
-            <Link to={`/${blogPost.slug}`}>
-              <Card key={blogPost.slug} src={blogPost.coverImage} title={blogPost.title} description = {blogPost.shortDescription} content = {blogPost.description}/>
-              {/* <Link to={`/${blogPost.slug}`}>Continue reading...</Link> */}
-            </Link>
-            
-          {/* </div> */}
-          </div>
-      ))}
+   <div data-aos="fade-in">
+           <Link to={`/${blogPost.slug}`}>
+             <Card key={blogPost.slug} src={blogPost.coverImage} title={blogPost.title} description = {blogPost.shortDescription} content = {blogPost.description}/>
+             {/* <Link to={`/${blogPost.slug}`}>Continue reading...</Link> */}
+           </Link>
+           
+         {/* </div> */}
+         </div>
+     ))}
 
 {posts.slice(3,4).map(blogPost => (
-    <div data-aos="fade-down-left">
-            <Link to={`/${blogPost.slug}`}>
-              <Card key={blogPost.slug} src={blogPost.coverImage} title={blogPost.title} description = {blogPost.shortDescription} content = {blogPost.description}/>
-              {/* <Link to={`/${blogPost.slug}`}>Continue reading...</Link> */}
-            </Link>
-            
-          {/* </div> */}
-          </div>
-      ))}
+   <div data-aos="fade-in">
+           <Link to={`/${blogPost.slug}`}>
+             <Card key={blogPost.slug} src={blogPost.coverImage} title={blogPost.title} description = {blogPost.shortDescription} content = {blogPost.description}/>
+             {/* <Link to={`/${blogPost.slug}`}>Continue reading...</Link> */}
+           </Link>
+           
+         {/* </div> */}
+         </div>
+     ))}
 
 
 {posts.slice(4,5).map(blogPost => (
-    <div data-aos="fade-down-left">
-            <Link to={`/${blogPost.slug}`}>
-              <Card key={blogPost.slug} src={blogPost.coverImage} title={blogPost.title} description = {blogPost.shortDescription} content = {blogPost.description}/>
-              {/* <Link to={`/${blogPost.slug}`}>Continue reading...</Link> */}
-            </Link>
-            
-          {/* </div> */}
-    </div>
-      ))}
+   <div data-aos="fade-in">
+           <Link to={`/${blogPost.slug}`}>
+             <Card key={blogPost.slug} src={blogPost.coverImage} title={blogPost.title} description = {blogPost.shortDescription} content = {blogPost.description}/>
+             {/* <Link to={`/${blogPost.slug}`}>Continue reading...</Link> */}
+           </Link>
+           
+         {/* </div> */}
+   </div>
+     ))}
 
 {posts.slice(5,).map(blogPost => (
-    <div data-aos="fade-down-left">
-            <Link to={`/${blogPost.slug}`}>
-              <Card key={blogPost.slug} src={blogPost.coverImage} title={blogPost.title} description = {blogPost.shortDescription} content = {blogPost.description}/>
-              {/* <Link to={`/${blogPost.slug}`}>Continue reading...</Link> */}
-            </Link>
-            
-          {/* </div> */}
+   <div data-aos="fade-in">
+           <Link to={`/${blogPost.slug}`}>
+             <Card key={blogPost.slug} src={blogPost.coverImage} title={blogPost.title} description = {blogPost.shortDescription} content = {blogPost.description}/>
+             {/* <Link to={`/${blogPost.slug}`}>Continue reading...</Link> */}
+           </Link>
+           
+         {/* </div> */}
+   </div>
+     ))}
+
+
+
+</div>
+      ) : (
+          <h3 className="text-lg font-serif animate-pulse text-coolYellow">Loading ...</h3>
+      )}
+ 
+
     </div>
-      ))}
-
-
-
-  
-
-    </div>
-   <div className="bg-nav-image bg-cover bg-fixed">
+   <div className=" bg-cover bg-fixed">
    <div className="text-white py-32">
       <div className="md:flex justify-between px-2">
       <div className="md:w-1/2">
@@ -231,9 +213,9 @@ function Home() {
         </div>
 
       </div>
-       <div className="bg-gray-900 bg-opacity-50 p-28 md:w-1/2 text-4xl font-serif">
-          <h1 className="flex justify-center"> "Lawe Sosah is.... definitely a programmer"</h1>
-          <p className="text-sm font-bold flex justify-end"> - Lawe Sosah</p>
+       <div className="bg-black-900 bg-opacity-60 p-28 md:w-1/2 text-4xl font-serif">
+          <h1 className="flex justify-center"> "Experience...is the name everyone gives to their mistakes"</h1>
+          <p className="text-sm font-bold flex justify-end"> - Oscar Wilde</p>
 
        </div>
 

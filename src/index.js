@@ -3,12 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import { ScrolledProvider } from './context/PageContext';
 
 ReactDOM.render(
   
   <React.StrictMode>
+    <ScrolledProvider>
     <App />
+    </ScrolledProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
